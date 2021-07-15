@@ -7,19 +7,16 @@
 </head>
 <body>
     <?php
-
         include 'includes/header.inc.html';
-    
     ?>
-
 <div class="container-fluid row mx-0 py-3">
     <nav class="col-sm-3 pb-3">
         <button type="button" class="btn btn-outline-secondary col-12"><a href="index.php">Home</a></button>
         <?php
             session_start();
             if(!empty($_SESSION)){
-            $table = $_SESSION['table'];
-            include 'includes/ul.inc.html';
+                $table = $_SESSION['table'];
+                include 'includes/ul.inc.html';
             }
         ?>
     </nav>
@@ -42,63 +39,58 @@
             }
         // Débocage //
             else if(isset($_GET['debugging'])){
-                echo "<h3>Débocage</h3><br>
-                ===> Lecture du tableau à l'aide de la fonction print_r()<br><br>";
-                echo "<pre>";
-                
-                print_r($table);
-
-                echo "</pre>";
+                    echo"<h2>Débocage</h2><br>
+                        ===> Lecture du tableau à l'aide de la fonction print_r()<br><br>";
+                    echo "<pre>";
+                        print_r($table);
+                    echo "</pre>";
             }
         // Concatenation //
             else if(isset($_GET['concatenation'])){
                 echo "
                     <h2>Concaténation</h2><br> 
-                    <p>====> Construction d'une phrase avec le contenu du tableau :</p><br>
+                    <p>====> Construction d'une phrase avec le contenu du tableau :</p>
                 ";
                 echo "
                     <h3>".$table['prenom']." ".$table['nom']."</h3>
-                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']." de la formation Simplon.</p><br>
+                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                     <p>====> Construction d'une phrase après MAJ du tableau :</p>
                 ";
                 $table['nom']= strtoupper($table['nom']);
                 echo "
                     <h3>".$table['prenom']." ".$table['nom']."</h3>
-                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']." de la formation Simplon.</p><br>
+                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                     <p>====> Affichage d'une virgule à la place du point pour la taille :</p>
                 ";
                 $table['taille'] = str_replace('.',',',$table['taille']);
                 echo "
                     <h3>".$table['prenom']." ".$table['nom']."</h3>
-                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']." de la formation Simplon.</p><br>
+                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                 ";
             }
         // Boucle //
             else if(isset($_GET['loop'])){
                 echo "
-                    <h3>Boucle</h3><br>
+                    <h2>Boucle</h2><br>
                     <p>===> Lecture du tableau à l'aide d'une boucle foreach</p>
                 ";
                 $i=0;
                 foreach ($table as $key => $value) {
-                echo '
-                    <div>à la ligne n°'.$i++. ' correspond la clé "'.$key.'" et contient "'.$value.'"</div>
-                ';
-            }
+                    echo '<div>à la ligne n°'.$i++. ' correspond la clé "'.$key.'" et contient "'.$value.'"</div>';
+                }
             }
         // Fonction //
             else if(isset($_GET['function'])){
                 echo "
-                <h3>Fonction</h3><br>
-                <p>===> J'utilise ma fonction readTable()</p>
-            ";
-            function readTable($table){
-                $i=0;
-                foreach ($table as $key => $value) {
-                echo 'à la ligne n°'.$i++. ' correspond la clé "'.$key.'" et contient "'.$value.'"<br>
-                ';
-            }
-            }
+                    <h2>Fonction</h2><br>
+                    <p>===> J'utilise ma fonction readTable()</p>
+                ";
+                function readTable($table){
+                    $i=0;
+                    foreach ($table as $key => $value) {
+                        echo 'à la ligne n°'.$i++. ' correspond la clé "'.$key.'" et contient "'.$value.'"<br>';
+                    }
+                }
                 readTable($table);
             }
         // Suppression //
@@ -108,16 +100,12 @@
             }
         // Reset //
             else {
-                ?>  
-                    <a href="index.php?add">
-                    <button type="button" class="btn btn-primary">Ajouter des données</button>
-                    </a>
-                <?php
+                echo'<a href="index.php?add"><button type="button" class="btn btn-primary">Ajouter des données</button></a>';
             }
         ?>
     </section>
 </div>
-     <?php
+    <?php
         include 'includes/footer.inc.html'
     ?>
 </body>
