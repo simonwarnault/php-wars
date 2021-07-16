@@ -55,13 +55,13 @@
                     <p>====> Construction d'une phrase avec le contenu du tableau :</p>
                 ";
                 echo "
-                    <h3>".$table['last_name']." ".$table['last_name']."</h3>
+                    <h3>".$table['first_name']." ".$table['last_name']."</h3>
                     <p>".$table['age']." ans, je mesure ".$table['size']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                     <p>====> Construction d'une phrase après MAJ du tableau :</p>
                 ";
                 $table['last_name']= strtoupper($table['last_name']);
                 echo "
-                    <h3>".$table['first_name']." ".$table['first_name']."</h3>
+                    <h3>".$table['first_name']." ".$table['last_name']."</h3>
                     <p>".$table['age']." ans, je mesure ".$table['size']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                     <p>====> Affichage d'une virgule à la place du point pour la taille :</p>
                 ";
