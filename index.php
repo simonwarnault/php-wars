@@ -28,10 +28,10 @@
         // tableau //
             if(isset($_POST['enregistrer'])){
                 $_SESSION['table']=[
-                    'prenom'=>$_POST['prenom'],
-                    'nom'=>$_POST['nom'],
+                    'first_name'=>$_POST['first_name'],
+                    'last_name'=>$_POST['last_name'],
                     'age'=>$_POST['age'],
-                    'taille'=>$_POST['taille'],
+                    'size'=>$_POST['size'],
                     'situation'=>$_POST['situation']
                 ]; 
                 echo '<h2 class="text-center">Données Sauvegardées</h2>';
@@ -55,20 +55,20 @@
                     <p>====> Construction d'une phrase avec le contenu du tableau :</p>
                 ";
                 echo "
-                    <h3>".$table['prenom']." ".$table['nom']."</h3>
-                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
+                    <h3>".$table['last_name']." ".$table['last_name']."</h3>
+                    <p>".$table['age']." ans, je mesure ".$table['size']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                     <p>====> Construction d'une phrase après MAJ du tableau :</p>
                 ";
-                $table['nom']= strtoupper($table['nom']);
+                $table['last_name']= strtoupper($table['last_name']);
                 echo "
-                    <h3>".$table['prenom']." ".$table['nom']."</h3>
-                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
+                    <h3>".$table['first_name']." ".$table['first_name']."</h3>
+                    <p>".$table['age']." ans, je mesure ".$table['size']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                     <p>====> Affichage d'une virgule à la place du point pour la taille :</p>
                 ";
-                $table['taille'] = str_replace('.',',',$table['taille']);
+                $table['size'] = str_replace('.',',',$table['size']);
                 echo "
-                    <h3>".$table['prenom']." ".$table['nom']."</h3>
-                    <p>".$table['age']." ans, je mesure ".$table['taille']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
+                    <h3>".$table['first_name']." ".$table['last_name']."</h3>
+                    <p>".$table['age']." ans, je mesure ".$table['size']."m et je fais partie des ".$table['situation']."s de la formation Simplon.</p><br>
                 ";
             }
         // Boucle //
