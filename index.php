@@ -6,10 +6,12 @@
     ?>
 </head>
 <body>
+    <!-- jummbotron visible en desktop et caché en mobile -->
     <?php
         include 'includes/header.inc.html';
     ?>
 <div class="container-fluid row mx-0 py-3">
+    <!-- menu burger en nav -->
     <nav class="col-sm-3 pb-3">
         <button type="button" class="btn btn-outline-secondary col-12"><a href="index.php">Home</a></button>
         <?php
@@ -20,6 +22,7 @@
             }
         ?>
     </nav>
+    <!-- section où le contenu change en fonction du menu burger -->
     <section class="col-sm-9">
         <?php
         // tableau //
@@ -105,6 +108,7 @@
         ?>
     </section>
 </div>
+    <!-- copyright bas de page -->
     <?php
         include 'includes/footer.inc.html'
     ?>
